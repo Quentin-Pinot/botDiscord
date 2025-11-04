@@ -1,103 +1,86 @@
+import asyncio
 import discord
 from discord.ext import commands
 import os
 import logging
 import traceback
 from dotenv import load_dotenv
-import subprocess
-import shutil
 
-from audio2text import Audio2Text
-
-# Load environment variables from .env file
 load_dotenv()
 
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+WELCOME_CHANNEL_ID = int(os.getenv('WELCOME_CHANNEL_ID'))
 
-logging.basicConfig(filename='discodBot.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%d/%m/%Y %H:%M:%S', encoding='utf-8')
+logging.basicConfig(filename='discodBot.log', level=logging.INFO, format='%(asctime)s %(message)s', datefmt='%d/%m/%Y %H:%M:%S', encoding='utf-8')
 logging.getLogger("discord").setLevel(logging.WARNING)
 
 intents = discord.Intents.default()
 intents.members = True
-intents.messages = True  # Ensure the bot can receive message events
+intents.message_content = True
 
-client = commands.Bot(command_prefix = '!', intents=intents, description='Bot de BigC')
+bot = commands.Bot(command_prefix='!', intents=intents, description='Bot de BigC')
 
-@client.event
+@bot.event
 async def on_ready():
-    logging.info('The bot is now ready for use !')
+    logging.info('The bot is now ready for use!')
+    if not os.path.exists('downloads'):
+        os.makedirs('downloads')
 
-@client.command()
+@bot.command()
 async def whoami(ctx):
     await ctx.send('Hello, I am the bot of Albion channel')
 
-@client.event
+@bot.event
 async def on_member_join(member):
-    channel = client.get_channel(338066803781664770)
-    await channel.send('Welcome')
+    channel = bot.get_channel(WELCOME_CHANNEL_ID)
+    if channel:
+        await channel.send(f'Welcome {member.mention}!')
 
-@client.event
+@bot.event
 async def on_member_remove(member):
-    channel = client.get_channel(338066803781664770)
-    await channel.send('Goodbye')
+    channel = bot.get_channel(WELCOME_CHANNEL_ID)
+    if channel:
+        await channel.send(f'Goodbye {member.name}!')
 
-@client.command()
+@bot.command()
 async def load(ctx, extension):
-    client.load_extension(f'cogs.{extension}')
+    try:
+        await bot.load_extension(f'cogs.{extension}')
+        await ctx.send(f'Loaded extension: {extension}')
+    except Exception as e:
+        await ctx.send(f'Error loading extension: {e}')
 
-@client.command()
+@bot.command()
 async def unload(ctx, extension):
-    client.unload_extension(f'cogs.{extension}')
+    try:
+        await bot.unload_extension(f'cogs.{extension}')
+        await ctx.send(f'Unloaded extension: {extension}')
+    except Exception as e:
+        await ctx.send(f'Error unloading extension: {e}')
 
-@client.command()
+@bot.command()
 async def reload(ctx, extension):
-    client.unload_extension(f'cogs.{extension}')
-    client.load_extension(f'cogs.{extension}')
+    try:
+        await bot.reload_extension(f'cogs.{extension}')
+        await ctx.send(f'Reloaded extension: {extension}')
+    except Exception as e:
+        await ctx.send(f'Error reloading extension: {e}')
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+async def load_cogs():
+    for filename in os.listdir('./cogs'):
+        if filename.endswith('.py'):
+            try:
+                await bot.load_extension(f'cogs.{filename[:-3]}')
+            except Exception as e:
+                logging.error(f'Failed to load extension {filename}: {e}')
 
-    if isinstance(message.channel, discord.DMChannel):
-        if message.attachments:
-            for attachment in message.attachments:
-                if attachment.filename.endswith(('.mp3', '.wav', '.ogg')):
-                    await message.channel.send("It's an audio")
-                    file_path = f"./downloads/{attachment.filename}"
-                    await attachment.save(file_path)
-                    
-                    if attachment.filename.endswith('.ogg'):
-                        wav_file_path = file_path.replace('.ogg', '.wav')
-                        print(file_path, wav_file_path)
-                        subprocess.run(['./ffmpeg/bin/ffmpeg.exe', '-i', file_path, wav_file_path])
-                        file_path = wav_file_path
-                    
-                    audio_2_txt = Audio2Text(file_path)
-                    await message.channel.send(audio_2_txt)
-                    
-                    # Delete everything inside the downloads folder
-                    for filename in os.listdir('./downloads'):
-                        file_path = os.path.join('./downloads', filename)
-                        try:
-                            if os.path.isfile(file_path) or os.path.islink(file_path):
-                                os.unlink(file_path)
-                            elif os.path.isdir(file_path):
-                                shutil.rmtree(file_path)
-                        except Exception as e:
-                            logging.error(f'Failed to delete {file_path}. Reason: {e}')
-                else:
-                    await message.channel.send("It's a text")
-        else:
-            await message.channel.send("It's a text")
+async def main():
+    async with bot:
+        await load_cogs()
+        await bot.start(DISCORD_TOKEN)
 
-    await client.process_commands(message)
-
-for filename in os.listdir('./cogs'):
-    if filename.endswith('.py'):
-        client.load_extension(f'cogs.{filename[:-3]}')
-
-try:
-    client.run(DISCORD_TOKEN)
-except Exception:
-    logging.error('The error is -> ' + str(traceback.format_exc()))
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except Exception:
+        logging.error('The error is -> ' + str(traceback.format_exc()))
