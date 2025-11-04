@@ -14,3 +14,4 @@ python-dotenv==1.0.1
 SpeechRecognition==3.14.1
 typing_extensions==4.12.2
 yarl==1.18.3
+mkdocs==1.6.0
