@@ -1,0 +1,7 @@
+services:
+        discord-bot:
+                build: .
+                container_name: "discord-bot"
+                volumes:
+                        - .:/app
+                command: "python main.py"

@@ -1,0 +1,235 @@
+16/02/2025 17:32:40 Using selector: EpollSelector
+16/02/2025 17:32:40 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 17:32:43 The bot is now ready for use !
+16/02/2025 17:36:16 Using selector: EpollSelector
+16/02/2025 17:36:16 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 17:36:20 The bot is now ready for use !
+16/02/2025 17:38:01 Using selector: EpollSelector
+16/02/2025 17:38:01 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 17:38:04 The bot is now ready for use !
+16/02/2025 18:23:07 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 18:23:08 Using selector: EpollSelector
+16/02/2025 18:23:08 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 18:23:08 logging in using static token
+16/02/2025 18:23:09 Shard ID None has connected to Gateway (Session ID: 86d08328f2c33bf4b2ed3bcc4c4a53c8).
+16/02/2025 18:23:11 The bot is now ready for use !
+16/02/2025 18:30:33 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 18:30:33 Using selector: EpollSelector
+16/02/2025 18:30:33 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 18:30:33 logging in using static token
+16/02/2025 18:30:34 Shard ID None has connected to Gateway (Session ID: 5fcbd041a35377d1893f89b700d5ae18).
+16/02/2025 18:30:36 The bot is now ready for use !
+16/02/2025 18:31:10 Ignoring exception in on_message
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/discord/client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "/app/main.py", line 66, in on_message
+    await attachment.save(file_path)
+  File "/usr/local/lib/python3.9/site-packages/discord/message.py", line 301, in save
+    with open(fp, 'wb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: './downloads/voice-message.ogg'
+16/02/2025 18:31:58 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 18:31:58 Using selector: EpollSelector
+16/02/2025 18:31:58 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 18:31:59 logging in using static token
+16/02/2025 18:31:59 Shard ID None has connected to Gateway (Session ID: 98c1ec8b62cd6017ba67f7cb3e7e99e8).
+16/02/2025 18:32:01 The bot is now ready for use !
+16/02/2025 18:32:08 Ignoring exception in on_message
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/speech_recognition/__init__.py", line 233, in __enter__
+    self.audio_reader = wave.open(self.filename_or_fileobject, "rb")
+  File "/usr/local/lib/python3.9/wave.py", line 509, in open
+    return Wave_read(f)
+  File "/usr/local/lib/python3.9/wave.py", line 163, in __init__
+    self.initfp(f)
+  File "/usr/local/lib/python3.9/wave.py", line 130, in initfp
+    raise Error('file does not start with RIFF id')
+wave.Error: file does not start with RIFF id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/speech_recognition/__init__.py", line 238, in __enter__
+    self.audio_reader = aifc.open(self.filename_or_fileobject, "rb")
+  File "/usr/local/lib/python3.9/aifc.py", line 917, in open
+    return Aifc_read(f)
+  File "/usr/local/lib/python3.9/aifc.py", line 352, in __init__
+    self.initfp(file_object)
+  File "/usr/local/lib/python3.9/aifc.py", line 316, in initfp
+    raise Error('file does not start with FORM id')
+aifc.Error: file does not start with FORM id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/speech_recognition/__init__.py", line 264, in __enter__
+    self.audio_reader = aifc.open(aiff_file, "rb")
+  File "/usr/local/lib/python3.9/aifc.py", line 917, in open
+    return Aifc_read(f)
+  File "/usr/local/lib/python3.9/aifc.py", line 358, in __init__
+    self.initfp(f)
+  File "/usr/local/lib/python3.9/aifc.py", line 314, in initfp
+    chunk = Chunk(file)
+  File "/usr/local/lib/python3.9/chunk.py", line 63, in __init__
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/discord/client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "/app/main.py", line 67, in on_message
+    audio_2_txt = Audio2Text(file_path)
+  File "/app/audio2text.py", line 8, in Audio2Text
+    with sr.AudioFile(audio_file) as source:
+  File "/usr/local/lib/python3.9/site-packages/speech_recognition/__init__.py", line 266, in __enter__
+    raise ValueError("Audio file could not be read as PCM WAV, AIFF/AIFF-C, or Native FLAC; check if file is corrupted or in another format")
+ValueError: Audio file could not be read as PCM WAV, AIFF/AIFF-C, or Native FLAC; check if file is corrupted or in another format
+16/02/2025 18:39:18 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 18:39:18 Using selector: EpollSelector
+16/02/2025 18:39:18 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 18:39:18 logging in using static token
+16/02/2025 18:39:19 Shard ID None has connected to Gateway (Session ID: f2c6ecbe107466694535553943186545).
+16/02/2025 18:39:21 The bot is now ready for use !
+16/02/2025 18:39:37 Ignoring exception in on_message
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/discord/client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "/app/main.py", line 71, in on_message
+    audio = AudioSegment.from_ogg(file_path)
+  File "/usr/local/lib/python3.9/site-packages/pydub/audio_segment.py", line 804, in from_ogg
+    return cls.from_file(file, 'ogg', parameters=parameters)
+  File "/usr/local/lib/python3.9/site-packages/pydub/audio_segment.py", line 728, in from_file
+    info = mediainfo_json(orig_file, read_ahead_limit=read_ahead_limit)
+  File "/usr/local/lib/python3.9/site-packages/pydub/utils.py", line 274, in mediainfo_json
+    res = Popen(command, stdin=stdin_parameter, stdout=PIPE, stderr=PIPE)
+  File "/usr/local/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/local/lib/python3.9/subprocess.py", line 1837, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'ffprobe'
+16/02/2025 19:50:27 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 19:50:27 Using proactor: IocpProactor
+16/02/2025 19:50:27 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 19:50:27 logging in using static token
+16/02/2025 19:50:28 Shard ID None has connected to Gateway (Session ID: fcd600a9c8940fc05a38bd8ce3f102ac).
+16/02/2025 19:50:30 The bot is now ready for use !
+16/02/2025 19:51:00 Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\.venv\Lib\site-packages\discord\client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\main.py", line 71, in on_message
+    audio = AudioSegment.from_ogg(file_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\.venv\Lib\site-packages\pydub\audio_segment.py", line 804, in from_ogg
+    return cls.from_file(file, 'ogg', parameters=parameters)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\.venv\Lib\site-packages\pydub\audio_segment.py", line 728, in from_file
+    info = mediainfo_json(orig_file, read_ahead_limit=read_ahead_limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\.venv\Lib\site-packages\pydub\utils.py", line 274, in mediainfo_json
+    res = Popen(command, stdin=stdin_parameter, stdout=PIPE, stderr=PIPE)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable
+16/02/2025 19:55:16 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 19:55:16 Using proactor: IocpProactor
+16/02/2025 19:55:16 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 19:55:16 logging in using static token
+16/02/2025 19:55:18 Shard ID None has connected to Gateway (Session ID: de2997b104dba696ee34a3af37e7ee7e).
+16/02/2025 19:55:20 The bot is now ready for use !
+16/02/2025 19:55:31 Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\.venv\Lib\site-packages\discord\client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\main.py", line 71, in on_message
+    subprocess.run(['ffmpeg', '-i', file_path, wav_file_path])
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable
+16/02/2025 20:03:56 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 20:03:56 Using proactor: IocpProactor
+16/02/2025 20:03:56 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 20:03:56 logging in using static token
+16/02/2025 20:03:57 Shard ID None has connected to Gateway (Session ID: 816c4ddd10fc8ae77d4bf2b130532cb4).
+16/02/2025 20:03:59 The bot is now ready for use !
+16/02/2025 20:04:25 Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\.venv\Lib\site-packages\discord\client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\main.py", line 71, in on_message
+    subprocess.run(['ffmpeg', '-i', file_path, wav_file_path])
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable
+16/02/2025 20:05:21 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 20:05:21 Using proactor: IocpProactor
+16/02/2025 20:05:21 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 20:05:21 logging in using static token
+16/02/2025 20:05:22 Shard ID None has connected to Gateway (Session ID: 58235745fc68b77e8d84ab121df3c828).
+16/02/2025 20:05:24 The bot is now ready for use !
+16/02/2025 20:05:27 Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\.venv\Lib\site-packages\discord\client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\main.py", line 72, in on_message
+    subprocess.run(['ffmpeg', '-i', file_path, wav_file_path])
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable
+16/02/2025 20:06:22 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 20:06:22 Using proactor: IocpProactor
+16/02/2025 20:06:22 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 20:06:22 logging in using static token
+16/02/2025 20:06:23 Shard ID None has connected to Gateway (Session ID: 26e06fe8e57642cad8f5a65290ecca25).
+16/02/2025 20:06:25 The bot is now ready for use !
+16/02/2025 20:06:35 Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\.venv\Lib\site-packages\discord\client.py", line 449, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\quent\Documents\Code\Python\bot\botdiscord\main.py", line 72, in on_message
+    subprocess.run(['ffmpeg', '-i', file_path, wav_file_path])
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\quent\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable
+16/02/2025 20:08:12 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 20:08:12 Using proactor: IocpProactor
+16/02/2025 20:08:12 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 20:08:12 logging in using static token
+16/02/2025 20:08:13 Shard ID None has connected to Gateway (Session ID: d925eb38bdb5cd6224b28c5633977cf6).
+16/02/2025 20:08:15 The bot is now ready for use !
+16/02/2025 23:26:39 PyNaCl is not installed, voice will NOT be supported
+16/02/2025 23:26:39 Using proactor: IocpProactor
+16/02/2025 23:26:39 Privileged message content intent is missing, commands may not work as expected.
+16/02/2025 23:26:39 logging in using static token
+16/02/2025 23:26:40 Shard ID None has connected to Gateway (Session ID: dfef36eedac964f8b2fcbf70abd43964).
+16/02/2025 23:26:42 The bot is now ready for use !
